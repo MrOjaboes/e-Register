@@ -1,0 +1,172 @@
+﻿@model CalvaryCoders.Models.Student
+
+@{
+    ViewBag.Title = "StudentDetails";
+    Layout = "~/Views/Shared/_cvcPage.cshtml";
+}
+
+<h2>Student Details</h2>
+<div class="row">
+    <div class="col-md-1"></div>
+    <hr />
+    <h2 class=" text-center text-warning">Student Bio-Data</h2>
+    <hr />
+    <div class="col-md-4">
+        <img src="~/@Model.passport" height="200" width="200" />
+
+    </div>
+    <div class="col-md-6">
+        
+        <table>
+            <tr>
+                <td><b>Full Name</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.FullName)
+                </td>
+
+            </tr>
+
+            <tr>
+                <td><b>Email</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.email)
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td><b>Date Of Birth</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.dob)
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td> <b>Age</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.age)
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td><b>Marital Status</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.MaritalStatus)
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td><b>Gender</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.Gender)
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td><b>Contact</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.contact)
+                </td>
+            </tr>
+
+
+            <tr>
+                <td><b>Date Registered</b></td>
+                <td>
+                    @Html.DisplayFor(model => model.DateAdded)
+                </td>
+            </tr>
+
+
+ 
+
+        </table>
+
+    </div>
+</div>
+<div class="row">
+    <h2 class="text-center text-warning">Contact Information</h2>
+    <table class="table">
+        <tr>
+            <td><b>House Number</b></td>
+            <td>@Model.streetNumber</td>
+
+        </tr>
+
+        <tr>
+            <td><b>Street Name</b></td>
+            <td>@Model.streetName</td>
+
+        </tr>
+
+        <tr>
+            <td><b>Town</b></td>
+            <td>@Model.town</td>
+
+        </tr>
+
+        <tr>
+            <td><b>Local Govt Area</b></td>
+            <td>@Model.lga</td>
+
+        </tr>
+
+        <tr>
+            <td><b>State</b></td>
+            <td>@Model.state</td>
+
+        </tr>
+         
+    </table>
+</div>
+<div class="row">
+    <h2 class="text-center text-warning">Course Information</h2>
+    <table class="table">
+        @{ foreach (var course in Model.Courses)
+            {
+                <tr>
+                    <td><b>Applied Course</b></td>
+                    <td>@course.Name</td>
+
+                </tr>
+
+                <tr>
+                    <td><b>Course Duration</b></td>
+                    <td>@course.Duration</td>
+
+                </tr>
+
+                <tr>
+                    <td><b>Amount</b></td>
+                    <td>@course.Amount</td>
+
+                </tr>
+
+                <tr>
+                    <td><b>Start Date</b></td>
+                    <td>@course.DateAdded.ToLongDateString()</td>
+
+                </tr>
+            }
+        }
+        
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<p class="text-center"><button onclick="window.print()" class="btn btn-primary">Print Details</button></p>
+
+ 
+     
+    

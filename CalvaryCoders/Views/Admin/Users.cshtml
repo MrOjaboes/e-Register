@@ -1,0 +1,75 @@
+﻿@model IEnumerable<CalvaryCoders.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_cvcPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "SignUp")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Names</label>
+        </th>
+        
+        <th>
+            <label>Email Id</label>
+        </th>
+         
+        <th>
+            <label>Date Of Birth</label>
+        </th>
+        <th>
+            <label>Age</label>
+        </th>
+        <th>
+            <label>Marital Status</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            <label>Contact</label>
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.FullName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.email)
+    </td>
+
+    <td>
+        @Html.DisplayFor(modelItem => item.dob)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.age)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.MaritalStatus)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Gender)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.contact)
+    </td>
+    
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "StudentDetails", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </td>
+</tr>
+}
+
+</table>
